@@ -1,7 +1,3 @@
-Aquí tienes la versión **totalmente profesional en español**, optimizada para GitHub (estructura clara, técnica y lista para portafolio o reclutadores):
-
----
-
 # QuantumCyberGuard
 
 **QuantumCyberGuard** es un sistema híbrido de detección de amenazas cibernéticas que combina técnicas clásicas de *Machine Learning* con simulación de computación cuántica para el análisis de anomalías y la evaluación de ataques por fuerza bruta.
