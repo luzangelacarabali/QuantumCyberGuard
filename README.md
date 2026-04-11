@@ -121,6 +121,8 @@ Los resultados se guardan como imágenes en `cuadernos/`:
 | Isolation Forest | ~5% anomalías detectadas |
 
 **Random Forest** fue el modelo con mejor desempeño con **85% de precisión**, usando SMOTE para manejo de desbalance y validación cruzada de 10 folds.
+<img width="2122" height="588" alt="image" src="https://github.com/user-attachments/assets/707a6019-6f0a-4446-b697-227b8f443130" />
+
 
 El **RNN Autoencoder** alcanzó 71% con margen de mejora en recall y precisión. El **Isolation Forest** complementó los modelos supervisados detectando ~5% de registros anómalos sin etiquetas.
 
@@ -130,6 +132,8 @@ El **RNN Autoencoder** alcanzó 71% con margen de mejora en recall y precisión.
 |----------------|---------------|---------------------------|
 | 64 bits | Millones de años | Minutos |
 | 128 bits | Computacionalmente inviable | Inviable aún con ventaja cuántica |
+<img width="2389" height="588" alt="image" src="https://github.com/user-attachments/assets/98cb08f1-8dd5-480e-8e85-4ab3c2d7d453" />
+
 
 > **Conclusión:** Las claves de 128 bits siguen siendo seguras incluso con Grover, pero esto valida la migración preventiva hacia criptografía post-cuántica (PQC).
 
