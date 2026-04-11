@@ -156,11 +156,41 @@ pip install qiskit qiskit-aer imbalanced-learn tensorflow scikit-learn pandas ma
 
 ## Uso
 
-1. Abrir el notebook: `cuadernos/QuantumCyberGuard_mejorado.ipynb`
-2. Ejecutar en Google Colab o Jupyter Notebook
-3. Dataset en: `datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv`
-4. Ejecutar todas las celdas en orden
+### 1. Clonar el repositorio
 
+```bash
+git clone https://github.com/luzangelacarabali/QuantumCyberGuard.git
+cd QuantumCyberGuard
+```
+
+### 2. Abrir el notebook
+
+Ubica y abre el archivo:
+
+```
+cuadernos/QuantumCyberGuard_mejorado.ipynb
+```
+
+### 3. Ejecutar el proyecto
+
+Puedes ejecutarlo en:
+
+* **Jupyter Notebook** (local)
+* **Google Colab** (subiendo el notebook)
+
+### 4. Dataset
+
+El conjunto de datos se encuentra en:
+
+```
+datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv
+```
+
+### 5. Ejecutar
+
+Ejecuta todas las celdas en orden para reproducir los resultados del análisis, la detección de anomalías y la simulación de ataques cuánticos.
+
+---
 
 ## Tecnologías Utilizadas
 
