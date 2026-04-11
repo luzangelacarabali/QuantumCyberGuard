@@ -66,9 +66,9 @@ Análisis exploratorio (EDA) - limpieza, análisis descriptivo y visualización
      ↓
 Preprocesamiento e ingeniería de variables
      ↓
-Entrenamiento de modelos(algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest))
+Entrenamiento de modelos - (algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest))
      ↓
-Simulación cuántica (algoritmo de Grover en Qiskit para estimar tiempos de ataque por fuerza bruta)
+Simulación cuántica - (algoritmo de Grover en Qiskit para estimar tiempos de ataque por fuerza bruta)
      ↓
 Evaluación y comparación de métricas de  rendimiento (accuracy, precision, recall, F1-score) y comparación clásico vs cuántico
      ↓
