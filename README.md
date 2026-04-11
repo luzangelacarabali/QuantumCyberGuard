@@ -57,7 +57,23 @@ Este proyecto aborda ambos frentes:
 El dataset incluye: tipos de ataque, industrias objetivo, vulnerabilidades, pérdidas financieras y tiempos de resolución.
 
 ---
-## Metodología
+## Metodología Y Flujo de Trabajo
+
+```
+Carga de datos
+     ↓
+Análisis exploratorio (EDA)
+     ↓
+Preprocesamiento e ingeniería de variables
+     ↓
+Entrenamiento de modelos (RF · Isolation Forest · Autoencoders)
+     ↓
+Evaluación y comparación de métricas
+     ↓
+Simulación cuántica (Grover · Qiskit)
+     ↓
+Consolidación de resultados
+```
 
 Exploración de datos (EDA): limpieza, análisis descriptivo y visualización
 Modelado con IA: algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest)
@@ -147,27 +163,6 @@ pip install qiskit qiskit-aer imbalanced-learn tensorflow scikit-learn pandas ma
 3. Dataset en: `datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv`
 4. Ejecutar todas las celdas en orden
 
----
-
-## Flujo de Trabajo
-
-```
-Carga de datos
-     ↓
-Análisis exploratorio (EDA)
-     ↓
-Preprocesamiento e ingeniería de variables
-     ↓
-Entrenamiento de modelos (RF · Isolation Forest · Autoencoders)
-     ↓
-Evaluación y comparación de métricas
-     ↓
-Simulación cuántica (Grover · Qiskit)
-     ↓
-Consolidación de resultados
-```
-
----
 
 ## Tecnologías Utilizadas
 
