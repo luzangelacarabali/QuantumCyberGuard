@@ -221,10 +221,10 @@ Consolidación de resultados
 
 ---
 
-## Autora
+## Autoras
 
 **Luz Angela Carabali Mulato e Isabella Perez Caviedes**  
-Estudiante de Ingeniería de Datos e IA  
+Estudiantes de Ingeniería de Datos e IA  
 Proyecto desarrollado como iniciativa en Inteligencia Artificial, Ciberseguridad y Computación Cuántica.
 
 ---
