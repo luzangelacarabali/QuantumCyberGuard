@@ -127,13 +127,12 @@ Los resultados se guardan como imágenes en `cuadernos/`:
 El **RNN Autoencoder** alcanzó 71% con margen de mejora en recall y precisión. El **Isolation Forest** complementó los modelos supervisados detectando ~5% de registros anómalos sin etiquetas.
 
 ###  Simulación Cuántica — Grover
+<img width="2389" height="588" alt="image" src="https://github.com/user-attachments/assets/98cb08f1-8dd5-480e-8e85-4ab3c2d7d453" />
 
 | Tamaño de clave | Tiempo clásico | Tiempo cuántico (estimado) |
 |----------------|---------------|---------------------------|
 | 64 bits | Millones de años | Minutos |
 | 128 bits | Computacionalmente inviable | Inviable aún con ventaja cuántica |
-<img width="2389" height="588" alt="image" src="https://github.com/user-attachments/assets/98cb08f1-8dd5-480e-8e85-4ab3c2d7d453" />
-
 
 > **Conclusión:** Las claves de 128 bits siguen siendo seguras incluso con Grover, pero esto valida la migración preventiva hacia criptografía post-cuántica (PQC).
 
