@@ -35,13 +35,14 @@ QuantumCyberGuard/
 ---
 
 ## Descripción General
-La ciberseguridad moderna requiere no solo detectar anomalías con precisión, sino también anticipar amenazas emergentes. Los ciberataques generan pérdidas superiores a 6 trillones de dólares anuales, y la llegada de la computación cuántica representa un riesgo adicional: algoritmos como RSA y ECC podrían ser vulnerados en segundos.
+La ciberseguridad moderna requiere no solo detectar anomalías con precisión, sino también anticipar amenazas emergentes. Los ciberataques generan pérdidas superiores a 6 trillones de dólares anuales, y la llegada de la computación cuántica representa un riesgo adicional: algoritmos como RSA y Elliptic Curve Cryptography —métodos de cifrado asimétrico ampliamente utilizados para proteger comunicaciones mediante claves públicas y privadas— podrían ser vulnerados en segundos.
+
 Este proyecto aborda ambos frentes:
 
-Detección de eventos anómalos en datos de ciberseguridad
-Comparación entre enfoques supervisados y no supervisados
-Simulación de ataques de fuerza bruta con el algoritmo de Grover
-Evaluación de la viabilidad real de ataques cuánticos
+- Detección de eventos anómalos en datos de ciberseguridad
+- Comparación entre enfoques supervisados y no supervisados
+- Simulación de ataques de fuerza bruta con el algoritmo de Grover's Algorithm
+- Evaluación de la viabilidad real de ataques cuánticos
 
 ---
 
