@@ -57,28 +57,23 @@ Este proyecto aborda ambos frentes:
 El dataset incluye: tipos de ataque, industrias objetivo, vulnerabilidades, pérdidas financieras y tiempos de resolución.
 
 ---
-## Metodología Y Flujo de Trabajo
+## Metodología 
 
 ```
 Carga de datos
      ↓
-Análisis exploratorio (EDA)
+Análisis exploratorio (EDA) - limpieza, análisis descriptivo y visualización
      ↓
 Preprocesamiento e ingeniería de variables
      ↓
-Entrenamiento de modelos (RF · Isolation Forest · Autoencoders)
+Entrenamiento de modelos(algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest))
      ↓
-Evaluación y comparación de métricas
+Simulación cuántica (algoritmo de Grover en Qiskit para estimar tiempos de ataque por fuerza bruta)
      ↓
-Simulación cuántica (Grover · Qiskit)
+Evaluación y comparación de métricas de  rendimiento (accuracy, precision, recall, F1-score) y comparación clásico vs cuántico
      ↓
 Consolidación de resultados
 ```
-
-Exploración de datos (EDA): limpieza, análisis descriptivo y visualización
-Modelado con IA: algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest)
-Simulación cuántica: algoritmo de Grover en Qiskit para estimar tiempos de ataque por fuerza bruta
-Validación: métricas de rendimiento (accuracy, precision, recall, F1-score) y comparación clásico vs cuántico
 
 ----
 
