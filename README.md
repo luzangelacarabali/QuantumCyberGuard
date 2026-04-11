@@ -151,8 +151,19 @@ pip install qiskit qiskit-aer imbalanced-learn tensorflow scikit-learn pandas ma
 ## Flujo de Trabajo
 
 ```
-Carga de datos → EDA → Preprocesamiento → Entrenamiento de modelos
-     → Evaluación y comparación → Simulación cuántica (Grover) → Resultados
+Carga de datos
+     ↓
+Análisis exploratorio (EDA)
+     ↓
+Preprocesamiento e ingeniería de variables
+     ↓
+Entrenamiento de modelos (RF · Isolation Forest · Autoencoders)
+     ↓
+Evaluación y comparación de métricas
+     ↓
+Simulación cuántica (Grover · Qiskit)
+     ↓
+Consolidación de resultados
 ```
 
 ---
