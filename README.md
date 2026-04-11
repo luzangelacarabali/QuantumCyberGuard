@@ -35,13 +35,13 @@ QuantumCyberGuard/
 ---
 
 ## Descripción General
+La ciberseguridad moderna requiere no solo detectar anomalías con precisión, sino también anticipar amenazas emergentes. Los ciberataques generan pérdidas superiores a 6 trillones de dólares anuales, y la llegada de la computación cuántica representa un riesgo adicional: algoritmos como RSA y ECC podrían ser vulnerados en segundos.
+Este proyecto aborda ambos frentes:
 
-La ciberseguridad moderna requiere no solo detectar anomalías con precisión, sino también anticipar amenazas emergentes. Este proyecto aborda ambos aspectos:
-
-- Detección de eventos anómalos en datos de ciberseguridad
-- Comparación entre enfoques supervisados y no supervisados
-- Simulación de ataques de fuerza bruta con algoritmos cuánticos
-- Evaluación de la viabilidad real de ataques cuánticos
+Detección de eventos anómalos en datos de ciberseguridad
+Comparación entre enfoques supervisados y no supervisados
+Simulación de ataques de fuerza bruta con el algoritmo de Grover
+Evaluación de la viabilidad real de ataques cuánticos
 
 ---
 
@@ -51,11 +51,19 @@ La ciberseguridad moderna requiere no solo detectar anomalías con precisión, s
 |-------|---------|
 | **Nombre** | Amenazas de Ciberseguridad Globales 2015–2024 |
 | **Archivo** | `datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv` |
-| **Fuente** | Kaggle |
+| **Fuente** | Kaggle — Soundankar, A. (2025) |
 
 El dataset incluye: tipos de ataque, industrias objetivo, vulnerabilidades, pérdidas financieras y tiempos de resolución.
 
 ---
+## Metodología
+
+Exploración de datos (EDA): limpieza, análisis descriptivo y visualización
+Modelado con IA: algoritmos supervisados (Random Forest, RNN) y no supervisados (Autoencoders, Isolation Forest)
+Simulación cuántica: algoritmo de Grover en Qiskit para estimar tiempos de ataque por fuerza bruta
+Validación: métricas de rendimiento (accuracy, precision, recall, F1-score) y comparación clásico vs cuántico
+
+----
 
 ## Arquitectura del Sistema
 
@@ -68,10 +76,10 @@ El sistema está compuesto por cuatro capas principales:
 
 ### 2. Capa de Modelado
 - **Random Forest** — supervisado
-- **Isolation Forest** — no supervisado
+- **RNN / LSTM** Autoencoder — detección en secuencias temporales
 - **Autoencoder Denso** — guardado en `modelos/autoencoder_dense.keras`
-- **LSTM Autoencoder** — detección de anomalías en secuencias temporales
-
+- **Isolation Forest** — no supervisado, sin etiquetas
+  
 ### 3. Capa de Visualización
 Los resultados se guardan como imágenes en `cuadernos/`:
 
@@ -86,54 +94,42 @@ Los resultados se guardan como imágenes en `cuadernos/`:
 | `grover_success_prob.png` | Probabilidad de éxito cuántico |
 
 ### 4. Capa de Simulación Cuántica
-- Algoritmo de Grover implementado en Qiskit
-- Estimación de tiempos de ataque
-- Análisis de complejidad cuántica
+- Algoritmo de Grover implementado con Qiskit Aer
+- Estimación del tiempo de ataque: `T ≈ (π/4) · √N`
 
 ---
+## Resultados
 
-## Modelos Implementados
+###  Mejor modelo: Random Forest
 
-### Aprendizaje Supervisado — Random Forest
-- Manejo de desbalance de clases con SMOTE
-- Validación cruzada (10 folds)
-- Análisis de importancia de variables
-- Escalador guardado en: `modelos/escalador_iforest.joblib`
+| Modelo | Resultado |
+|--------|-----------|
+| **Random Forest** | **85% accuracy**  |
+| RNN Autoencoder | 71% accuracy |
+| Isolation Forest | ~5% anomalías detectadas |
 
-### Aprendizaje No Supervisado
+**Random Forest** fue el modelo con mejor desempeño con **85% de precisión**, usando SMOTE para manejo de desbalance y validación cruzada de 10 folds.
 
-**Isolation Forest**
-- Detección de outliers sin etiquetas
-- Visualización en 2D mediante PCA
-- Modelo guardado en: `modelos/aislamiento_bosque.joblib`
+El **RNN Autoencoder** alcanzó 71% con margen de mejora en recall y precisión. El **Isolation Forest** complementó los modelos supervisados detectando ~5% de registros anómalos sin etiquetas.
 
-**Autoencoder Denso**
-- Alternativa eficiente computacionalmente
-- Adecuado para datos no secuenciales
-- Modelo guardado en: `modelos/autoencoder_dense.keras`
-- Escalador guardado en: `modelos/escalador_ae.joblib`
+###  Simulación Cuántica — Grover
 
-**LSTM Autoencoder**
-- Detección de anomalías en secuencias
-- Captura dependencias temporales
-- Umbral basado en percentiles del error de reconstrucción
+| Tamaño de clave | Tiempo clásico | Tiempo cuántico (estimado) |
+|----------------|---------------|---------------------------|
+| 64 bits | Millones de años | Minutos |
+| 128 bits | Computacionalmente inviable | Inviable aún con ventaja cuántica |
 
+> **Conclusión:** Las claves de 128 bits siguen siendo seguras incluso con Grover, pero esto valida la migración preventiva hacia criptografía post-cuántica (PQC).
+
+### Tendencia en ataques
+- Incremento anual del **30% en ransomware** desde 2020
 ---
+## Conclusiones
 
-## Componente Cuántico — Algoritmo de Grover (Qiskit)
+- La combinación de modelos supervisados y no supervisados mejora la robustez en detección de ciberataques.
+- El análisis de Grover evidencia la necesidad de migrar hacia criptografía post-cuántica.
+- QuantumCyberGuard propone un enfoque integral: **detección inteligente + simulación cuántica + transición a PQC**.
 
-- Simulación de búsqueda en espacios de claves usando Qiskit Aer
-- Estimación del tiempo de ataque mediante:
-
-```
-T ≈ (π/4) · √N
-```
-
-- Extrapolación a tamaños de clave reales (128 bits)
-
-**Conclusión clave:** Incluso bajo supuestos optimistas, los ataques de fuerza bruta con algoritmos cuánticos siguen siendo computacionalmente inviables para claves de gran tamaño.
-
----
 
 ## Instalación
 
@@ -145,18 +141,9 @@ pip install qiskit qiskit-aer imbalanced-learn tensorflow scikit-learn pandas ma
 
 ## Uso
 
-1. Abrir el notebook principal:
-   ```
-   cuadernos/QuantumCyberGuard_mejorado.ipynb
-   ```
-
+1. Abrir el notebook: `cuadernos/QuantumCyberGuard_mejorado.ipynb`
 2. Ejecutar en Google Colab o Jupyter Notebook
-
-3. Asegurarse de que el dataset esté en:
-   ```
-   datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv
-   ```
-
+3. Dataset en: `datos/Amenazas_de_ciberseguridad_globales_2015-2024.csv`
 4. Ejecutar todas las celdas en orden
 
 ---
@@ -164,29 +151,9 @@ pip install qiskit qiskit-aer imbalanced-learn tensorflow scikit-learn pandas ma
 ## Flujo de Trabajo
 
 ```
-Carga de datos
-     ↓
-Análisis exploratorio (EDA)
-     ↓
-Preprocesamiento e ingeniería de variables
-     ↓
-Entrenamiento de modelos (RF · Isolation Forest · Autoencoders)
-     ↓
-Evaluación y comparación de métricas
-     ↓
-Simulación cuántica (Grover · Qiskit)
-     ↓
-Consolidación de resultados
+Carga de datos → EDA → Preprocesamiento → Entrenamiento de modelos
+     → Evaluación y comparación → Simulación cuántica (Grover) → Resultados
 ```
-
----
-
-## Resultados
-
-- **Random Forest** proporciona una base sólida para clasificación supervisada
-- **LSTM Autoencoder** captura patrones temporales complejos
-- **Isolation Forest** es eficiente para detección no supervisada sin etiquetas
-- **Simulación cuántica** evidencia los límites prácticos del algoritmo de Grover
 
 ---
 
@@ -213,14 +180,13 @@ Consolidación de resultados
 
 ## Trabajo Futuro
 
-- Integración con streaming de datos en tiempo real (Kafka)
-- Despliegue como API o dashboard interactivo
+- Integración con streaming en tiempo real (Kafka)
+- Despliegue como API o dashboard
 - Uso de hardware cuántico real
-- Modelos basados en Transformers
-- Implementación de MLOps
+- Implementación de criptografía post-cuántica (PQC)
+- Modelos basados en Transformers y MLOps
 
 ---
-
 ## Autoras
 
 **Luz Angela Carabali Mulato e Isabella Perez Caviedes**  
@@ -229,6 +195,21 @@ Proyecto desarrollado como iniciativa en Inteligencia Artificial, Ciberseguridad
 
 ---
 
+## Referencias
+
+- Soundankar, A. (2025). *Global Cybersecurity Threats (2015–2024)*. Kaggle.
+- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+- Nielsen, M. A., & Chuang, I. L. (2010). *Quantum Computation and Quantum Information*. Cambridge University Press.
+- Bernstein, D. J., & Lange, T. (2017). Post-quantum cryptography. *Nature*, 549, 188–194.
+- IBM Quantum. (2024). *Qiskit Documentation*. https://qiskit.org
+- ENISA. (2022). *Post-Quantum Cryptography: Current state and quantum mitigation strategies*.
+
+---
+
 ## Licencia
 
 Este proyecto está destinado a fines académicos y de investigación.
+
+
+
+
