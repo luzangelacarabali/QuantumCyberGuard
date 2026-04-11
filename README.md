@@ -30,7 +30,7 @@ QuantumCyberGuard/
 │   ├── rf_feature_importance.png
 │   └── rf_metrics.png
 │
-└── README.md
+└── 
 ```
 
 ---
